@@ -2,8 +2,8 @@ services:
   - type: web
     name: stluke-worship-slides
     runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python -m gunicorn --bind 0.0.0.0:$PORT --timeout 120 app:app
+    buildCommand: ./build.sh
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --timeout 120 app:app
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.6"
